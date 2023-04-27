@@ -1,0 +1,33 @@
+esphome:
+  name: hts-ms01
+  name_add_mac_suffix: true
+
+esp8266:
+  board: esp01_1m
+
+logger:
+
+api:
+
+ota:
+
+wifi:
+  ap:
+    password: "123456788"
+
+captive_portal:
+
+sensor:
+  - platform: wifi_signal
+    name: "wifi_strength"
+    update_interval: 60s
+  - platform: uptime
+    name: "uptime"
+    update_interval: 60s
+
+button:
+  - platform: restart
+    name: "restart"
+
+# Put actual Config Here
+
