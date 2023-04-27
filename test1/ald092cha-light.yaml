@@ -13,7 +13,7 @@ ota:
 
 dashboard_import:
   package_import_url: github://hpineapples/esphome-oem-test/test1/ald092cha-light.yaml@main
-  import_full_config: true
+  import_full_config: false
 
 wifi:
   ap:
