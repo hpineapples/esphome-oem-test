@@ -22,10 +22,10 @@ captive_portal:
 
 sensor:
   - platform: wifi_signal
-    name: "${name}_wifi_strength"
+    name: "wifi_strength"
     update_interval: 60s
   - platform: uptime
-    name: "${name}_uptime"
+    name: "uptime"
     update_interval: 60s
 
 output:
@@ -38,7 +38,7 @@ output:
 
 light:
   - platform: cwww
-    name: ${name}
+    name: ald092cha-light
     cold_white: output_cw
     warm_white: output_ww
     cold_white_color_temperature: 5700 K
