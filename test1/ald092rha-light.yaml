@@ -1,6 +1,6 @@
-# Arlec Grid Connect Smart 9W CCT LED Downlight
+# Arlec Grid Connect Smart 9W RGB CCT LED Downlight 
 esphome:
-  name: arlec-ald092cha-light
+  name: arlec-ald092rha-light
   name_add_mac_suffix: true
 
 esp8266:
@@ -39,12 +39,24 @@ output:
   - platform: esp8266_pwm
     id: output_ww
     pin: GPIO5
+  - platform: esp8266_pwm
+    pin: GPIO12
+    id: output_r
+  - platform: esp8266_pwm
+    pin: GPIO13
+    id: output_b
+  - platform: esp8266_pwm
+    pin: GPIO14
+    id: output_g
 
 light:
-  - platform: cwww
-    name: arlec-ald092cha-light
-    cold_white: output_cw
+  - platform: rgbww
+    color_interlock: true
+    name: arlec-ald092rha-light
+    red: output_r
+    green: output_g
+    blue: output_b
     warm_white: output_ww
+    cold_white: output_cw
     cold_white_color_temperature: 5700 K
     warm_white_color_temperature: 3000 K
-    constant_brightness: true

@@ -1,0 +1,61 @@
+esphome:
+  name: mirabella-genio-ir
+  name_add_mac_suffix: true
+
+esp8266:
+  board: esp01_1m
+
+logger:
+
+api:
+
+ota:
+
+wifi:
+  ap:
+    password: "123456788"
+
+captive_portal:
+
+sensor:
+  - platform: wifi_signal
+    name: "wifi_strength"
+    update_interval: 60s
+  - platform: uptime
+    name: "uptime"
+    update_interval: 60s
+
+button:
+  - platform: restart
+    name: "restart"
+
+# Put actual Config Here
+
+remote_transmitter:
+  pin: GPIO14
+  carrier_duty_percent: 33%
+
+remote_receiver:
+  pin:
+    number: GPIO5
+    inverted: True
+
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: GPIO13
+      mode: INPUT_PULLUP
+      inverted: True
+    name: "button"
+
+output:
+  - platform: esp8266_pwm
+    id: "red_led_output"
+    pin:
+      number: GPIO4
+      inverted: True
+
+light:
+  - platform: monochromatic
+    name: "red_led"
+    output: "red_led_output"
